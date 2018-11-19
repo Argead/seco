@@ -1,0 +1,34 @@
+{
+  "name": "seco",
+  "version": "1.0.0",
+  "description": "Ethereum project using ERC721 tokens to securitize digital content.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/argead/seco.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/argead/seco/issues"
+  },
+  "homepage": "https://github.com/argead/seco#readme",
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "ganache-cli": "^6.2.1",
+    "mocha": "^5.2.0",
+    "next": "^7.0.2",
+    "next-routes": "^1.4.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.83.0",
+    "solc": "^0.5.0",
+    "truffle-hdwallet-provider": "0.0.3",
+    "web3": "^1.0.0-beta.36"
+  }
+}
