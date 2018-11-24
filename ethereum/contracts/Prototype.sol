@@ -8,6 +8,13 @@ contract Prototype {
     struct Content {
       string name;
     }
+ 
+    address public owner;
+
+
+    constructor () public {
+      owner = msg.sender;
+    }
 
     function createContent(string _name) public returns (uint) {
       Content memory _content = Content({

@@ -1,6 +1,8 @@
 import sqlite3 as sqlite
 import os.path
 import datetime
+import subprocess
+import time
 from bottle import route, run, template, request, static_file, redirect
 from os import listdir, getcwd
 
@@ -50,6 +52,16 @@ def save_file(upload):
     except Exception as e:
         print(e)
 
+def test_node():
+    create_token = subprocess.run(['node', './test/proto.js'])
+    time.sleep(20)
+    get_token = subprocess.run(['node', './test/logs.js'],stdout=subprocess.PIPE)
+    cleaned_output = get_token.stdout.decode("utf-8").strip().split(" ")
+    for item in cleaned_output:
+        print(item)
+
+
+
 @route('/upload_file', method='POST')
 def upload_file():
     try:
@@ -57,6 +69,7 @@ def upload_file():
         conn = create_or_open_db(DB_NAME)
         insert_content(conn, upload)
         save_file(upload)
+        test_node()
         #sql = '''select * from content where ID = (SELECT MAX(ID) FROM content)'''
         #a = conn.execute(sql)
         #b = a.fetchone()[0]

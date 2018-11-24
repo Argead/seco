@@ -20,9 +20,16 @@ const tester = async () => {
     'NewContent', {
     fromBlock: 0,
     toBlock: 'latest'
-  }, function (error, events){ console.log('got here'); })
+  }, function (error, events){ 
+    if (error) {
+      console.log(error); 
+    }
+  })
   .then(function(events){
-    console.log(events);
+    firstEventId = events[2]['returnValues']['contentId'];
+    firstEventName = events[2]['returnValues']['name'];
+    console.log(firstEventId, firstEventName);
+    return [firstEventId, firstEventName];
   });
 };
 
