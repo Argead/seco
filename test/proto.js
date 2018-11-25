@@ -9,17 +9,17 @@ const provider = new HDWalletProvider(
 const web3 = new Web3(provider);
 
 
-const tester = async () => {
+const tester = async (filename) => {
   const accounts = await web3.eth.getAccounts();
   const instance = new web3.eth.Contract(
     JSON.parse(compiledProto.interface),
     "0x268F3dE17C9aFB5947d8AECc3a3Bb32c18a4676C"
   );
-  const result = await instance.methods.createContent('Test').send({
+  const result = await instance.methods.createContent(filename).send({
     from: accounts[0],
     gas: '1000000'
   });
-  console.log(result.options);
+  console.log(result['transactionHash']);
 };
 
-tester();
+tester(process.argv[process.argv.length - 1]);

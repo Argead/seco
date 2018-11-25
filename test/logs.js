@@ -26,10 +26,17 @@ const tester = async () => {
     }
   })
   .then(function(events){
-    firstEventId = events[2]['returnValues']['contentId'];
-    firstEventName = events[2]['returnValues']['name'];
-    console.log(firstEventId, firstEventName);
-    return [firstEventId, firstEventName];
+    let results = []
+    // console.log(events[events.length-1]);
+    results.push(events[events.length - 1]['transactionHash']);
+    results.push(events[events.length - 1]['returnValues']['contentId']);
+    // var test = events[events.length - 1]['transactionHash'];
+    // console.log(test);
+    // var firstEventId = events[2]['returnValues']['contentId'];
+    // var firstEventName = events[2]['returnValues']['name'];
+    // console.log(firstEventId, firstEventName);
+    console.log(results);
+    return events;
   });
 };
 
